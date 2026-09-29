@@ -7,9 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Test sharelist
-        run: |
-          curl -s -X POST 'https://github-actions-test...' 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Run test
+        run: node test.js
         env:
           NDUS: ${{ secrets.NDUS }}
       
